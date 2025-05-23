@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Error
+{% endblock title %}
+
+{% block content %}
+    <h1>Error ({{ code }})</h1>
+    <p>Status code: {{ code }}</p>
+    <p>Try again or contact the administrator</p>
+{% endblock content %}

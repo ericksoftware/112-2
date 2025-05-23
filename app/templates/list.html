@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Tasks
+{% endblock title %}
+
+{% block content %}
+<h1>Tasks</h1>
+{% if tasks %}
+    {% for item in tasks %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ item.summary }}</h6>
+            <p class="card-text">{{ item.description }}</p>
+            <!-- Changed to 'task' to match route name -->
+            <a href="{{ url_for('task', id=item.id) }}" class="btn btn-primary">View</a>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>No tasks found</p>
+{% endif %}
+{% endblock content %}
